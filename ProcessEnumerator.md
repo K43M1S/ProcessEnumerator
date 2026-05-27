@@ -85,12 +85,13 @@ if (!hProcess) {
 ```
 
 3. Sometimes thread information can't be accesses by the user. In this case, the program will retrieve the following information information:
+   
+![Proof of Concept](./Images/20250721183446.png)
 
-![[Pasted image 20250721183446.png]]
+5. The program can't retrieve information about protected SYSTEM processes :
 
-4. The program can't retrieve information about protected SYSTEM processes :
+![PE Error](./Images/20250721185058.png)
 
-![[Pasted image 20250721185058.png]]
 # 2 - Beacon Object File
 
 In this version, several modifications were made compared with the PE. Some functions were simplified and data is returned using buffers to make a better experience for Red Teamers.
@@ -160,8 +161,8 @@ DECLSPEC_IMPORT BOOL WINAPI ADVAPI32$GetTokenInformation(HANDLE, TOKEN_INFORMATI
 
 Proof of Concept:
 
-![[Pasted image 20250721215142.png]]
+![Proof of Concept](./Images/20250721215142.png)
 
 As mentioned previously, a process without admin permissions can't access threads from NT SYSTEM processes. This applies to Windows Protected processes too:
 
-![[Pasted image 20250721214707.png]]
+![Error BOF](./Images/20250721214707.png)
